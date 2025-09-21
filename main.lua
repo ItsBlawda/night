@@ -26,7 +26,7 @@ local TP = TPPlace:Section({
 local player = game.Players.LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
 local root = char:WaitForChild("HumanoidRootPart")
-local itemsFolder = workspace:WaitForChild("items")
+local itemsFolder = workspace:WaitForChild("Items")
 
 local itemNames = {
     "Bolt",
@@ -88,4 +88,5 @@ TP:Button({
         end
     end
 })
+
 
