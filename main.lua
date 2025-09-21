@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet(https://raw.githubusercontent.com/ItsBlawda/whoamii/refs/heads/master/MYGUI.lua'))()
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/ItsBlawda/whoamii/refs/heads/master/MYGUI.lua'))()
 Library.Theme = "Dark"
 local Flags = Library.Flags
 
@@ -6,27 +6,27 @@ local Window = Library:Window({
     Text = "GitHUB"
 })
 
-local Bring = Window:Tab({ 
+local BringItems = Window:Tab({ 
     Text = "Bring Items" 
 })
 
 local TPPlace = Window:Tab({ 
-    Text = "Bring Items" 
+    Text = "Teleportation" 
 })
 
-local bring = Bring:Section({ 
+local bring = BringItems:Section({ 
     Text = "Bring"
 })
 
 local TP = TPPlace:Section({ 
-    Text = "TP Place"
+    Text = "Campfire"
 })
 
 
 local player = game.Players.LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
 local root = char:WaitForChild("HumanoidRootPart")
-local itemsFolder = workspace:WaitForChild("Items")
+local itemsFolder = workspace:WaitForChild("items")
 
 local itemNames = {
     "Bolt",
@@ -58,7 +58,7 @@ bring:Toggle({
     Default = false,
     Callback = function(Value)
         toggleOn = Value
-        if toggleOn and selectedItem then
+        if Value and selectedItem then
             local item = itemsFolder:FindFirstChild(selectedItem)
             if item then
                 if item:IsA("BasePart") then
@@ -70,6 +70,7 @@ bring:Toggle({
         end
     end
 })
+
 
 
 local player = game.Players.LocalPlayer
@@ -87,5 +88,4 @@ TP:Button({
         end
     end
 })
-
 
